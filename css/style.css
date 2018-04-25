@@ -85,3 +85,10 @@ blockquote {
     padding: 60px 0 240px;
     background-position: bottom;
 }
+
+#t-mobile-banner {
+    background-image: url(../images/t-mobile-1st-prize-winners.jpeg);
+    background-size: cover;
+    padding: 240px 0 60px;
+    background-position: top;
+}

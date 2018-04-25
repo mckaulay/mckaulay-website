@@ -20,6 +20,9 @@
     <!--<script type="text/javascript" src="js/materialize.min.js"></script>-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
 
+    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+
+
     <style>
         /*@import url('https://fonts.googleapis.com/css?family=Work+Sans');*/
 
@@ -30,6 +33,22 @@
         $(document).ready(function () {
             $(".button-collapse").sideNav();
         })
+
+        var $masonry = $('.gallery');
+        $masonry.masonry({
+            // set itemSelector so .grid-sizer is not used in layout
+            itemSelector: '.gallery-item',
+            // use element for option
+            columnWidth: '.gallery-item',
+            // no transitions
+            transitionDuration: 0
+        });
+            
+        // layout Masonry after each image loads
+        $masonry.imagesLoaded(function() {
+            $masonry.masonry('layout');
+        });
+
     </script>
 
     <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />-->
@@ -48,7 +67,7 @@
                 <div class="row">
                     <div class="col s12 m3 push-m9">
                         <div class="center-align">
-                            <img src="images/gradavatar.JPG" alt="" class="circle responsive-img" style="">
+                            <img src="images/gradavatar.jpg" alt="" class="circle responsive-img" style="">
                         </div>
                     </div>
                     <div class="col s12 m9 pull-m3">
@@ -100,12 +119,18 @@
         </div>
     </nav>
     <main>
-        <div class="section" id="bus-game-banner">
+        <div class="section" id="t-mobile-banner">
+            <div class="container white-text">
+                <p>April 22, 2018</p>
+                <a href="#experience"><h4 class="white-text" style="text-shadow: 2px 2px 8px #000000">First Prize at T-Mobile Internet of Things Hackathon!</h4></a>
+            </div>
+        </div>
+        <!--<div class="section" id="bus-game-banner">
             <div class="container">
                 <h3 class="yellow-text ">Try the new Seattle Bus Game!</h3>
                 <a href="bus-game" class="waves-effect waves-light btn red darken-1">Click Here to Play</a>
             </div>
-        </div>
+        </div>-->
         <div class="container">
             <div id="experience" class="section scrollspy">
                 <h3 class="green-text text-darken-3">Experience &amp; Projects</h3>
@@ -113,7 +138,25 @@
                     <div class="col s12 m6">
                         <div class="card ">
                             <div class="card-image">
-                                <img src="images/search.PNG">
+                                <img src="images/t-mobile-dashboard.png">
+                            </div>
+                            <div class="card-content">
+                                <span class="card-title truncate">
+                                    <a href="https://iothack.me">T-Mobile IoT Hackathon <span class="amber badge" style="border-radius: 5px;">1st Prize</span></a>
+                                </span>
+                                <p>My team developed both a new dashboard to integrate with T-Mobile's existing room booking system, and an internet of things-connected light switch which would require employees to check in to conference rooms with their badges in order to turn on the lights and confirm that they were using the space.</p>
+                                
+                            </div>
+                            <div class="card-action">
+                                <a href="https://github.com/mckaulay/tmobile-hackathon">Source Code on GitHub</a><a href="https://docs.google.com/presentation/d/1j2rZ-OjwNgM2Sa5n75X8SbgGHtXBnYL7P5LFfJCtLgc/edit?usp=sharing">Presentation</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col s12 m6">
+                        <div class="card ">
+                            <div class="card-image">
+                                <img src="images/search.png">
                             </div>
                             <div class="card-content">
                                 <span class="card-title truncate">
@@ -129,10 +172,12 @@
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="row">
                     <div class="col s12 m6">
                         <div class="card ">
                             <div class="card-image">
-                                <img src="images/launch.PNG">
+                                <img src="images/launch.png">
                             </div>
                             <div class="card-content">
                                 <span class="card-title truncate">
@@ -145,12 +190,10 @@
                             </div>-->
                         </div>
                     </div>
-                </div>
-                <div class="row">
                     <div class="col s12 m6">
                         <div class="card ">
                             <div class="card-image">
-                                <img src="images/trainstuff.JPG">
+                                <img src="images/trainstuff.jpg">
                             </div>
                             <div class="card-content">
                                 <span class="card-title truncate">
@@ -164,10 +207,12 @@
                             </div>-->
                         </div>
                     </div>
+                </div>
+                <div class="row">
                     <div class="col s12 m6">
                         <div class="card ">
                             <div class="card-image">
-                                <img src="images/hwp.JPG">
+                                <img src="images/hwp.jpg">
                             </div>
                             <div class="card-content">
                                 <span class="card-title truncate">
@@ -181,12 +226,10 @@
                             </div>-->
                         </div>
                     </div>
-                </div>
-                <div class="row">
                     <div class="col s12 m6">
                         <div class="card">
                             <div class="card-image">
-                                <img src="images/lcs.JPG">
+                                <img src="images/lcs.jpg">
                             </div>
                             <div class="card-content">
                                 <span class="card-title truncate">
@@ -200,10 +243,12 @@
                             </div>-->
                         </div>
                     </div>
+                </div>
+                <div class="row">
                     <div class="col s12 m6">
                         <div class="card">
                             <div class="card-image">
-                                <img src="images/jb.JPG">
+                                <img src="images/jb.jpg">
                             </div>
                             <div class="card-content">
                                 <span class="card-title truncate">
@@ -216,18 +261,49 @@
                             </div>-->
                         </div>
                     </div>
-                </div>
-                <div class="row">
                     <div class="col s12 m6">
                         <div class="card small">
                             <div class="card-image">
-                                <img src="images/labelsandlore.JPG">
+                                <img src="images/labelsandlore.jpg">
                             </div>
                             <div class="card-content truncate">
                                 <span class="card-title">
                                     <a href="http://labelsandlore.com/">LabelsandLore.com</a>
                                 </span>
                                 <p>Host and maintain website promoting historical book.</p>
+                            </div>
+                            <!--<div class="card-action">
+                                <a href="http://labelsandlore.com/">Visit Site</a>
+                            </div>-->
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s12 m6">
+                        <div class="card">
+                            <div class="card-image">
+                                <img src="images/monorail-game.png">
+                            </div>
+                            <div class="card-content">
+                                <span class="card-title">Seattle Monorail Game</span>
+                                <p>Designed in 2012 to celebrate the 50th anniversary of one of Seattle's famous engineering landmarks: the Seattle Center Monorail! <br>Featured by <a href="http://monorails.org/tMspages/SeattleTurns50.html">The Monorail Society</a></p>
+                                <a href="/monorail" class="waves-effect waves-light btn red darken-1">Click Here to Play</a>
+                                <p><small><em>Many thanks to <a href="http://starkel.us/">Conner Starkel</a> for helping to fix the Seattle Monorail Game</em></small></p>
+                            </div>
+                            <!--<div class="card-action">
+                                <a href="http://labelsandlore.com/">Visit Site</a>
+                            </div>-->
+                        </div>
+                    </div>
+                    <div class="col s12 m6">
+                        <div class="card">
+                            <div class="card-image">
+                                <img src="images/bus-game-screenshot.png">
+                            </div>
+                            <div class="card-content">
+                                <span class="card-title">Seattle Bus Game</span>
+                                <p>Try the new Seattle Bus Game!</p>
+                                <a href="bus-game" class="waves-effect waves-light btn red darken-1">Click Here to Play</a>
                             </div>
                             <!--<div class="card-action">
                                 <a href="http://labelsandlore.com/">Visit Site</a>
@@ -248,35 +324,6 @@
                                 <a href="http://julianbakeryinfo.com/">Visit Site</a>
                             </div>-->
                         </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col s12 m6">
-                        <div class="card">
-                            <!--<div class="card-image">
-                                <img src="images/labelsandlore.JPG">
-                            </div>-->
-                            <div class="card-content">
-                                <span class="card-title">Seattle Monorail Game</span>
-                                <a href="/monorail" class="waves-effect waves-light btn red darken-1">Click Here to Play</a>
-                                <p>Designed in 2012 to celebrate the 50th anniversary of one of Seattle's famous engineering landmarks: the Seattle Center Monorail!</p>
-                                <p><small><em>Many thanks to <a href="http://starkel.us/">Conner Starkel</a> for fixing the Seattle Monorail Game</em></small></p>
-                            </div>
-                            <!--<div class="card-action">
-                                <a href="http://labelsandlore.com/">Visit Site</a>
-                            </div>-->
-                        </div>
-                    </div>
-                    <div class="col s12 m6">
-                        <!--<div class="card">
-                            <div class="card-content">
-                                <span class="card-title">Emerald Refuge Resource Directory</span>
-                                <p><strong>Autumn 2016</strong> - I was the group leader in a university project in which my team and I conceptualized and created a directory website to list refugee and social services in Washington. I personally implemented an SMS chat bot to make the information accessible to individuals without internet access.</p>
-                            </div>
-                            <div class="card-action">
-                                <a href="http://julianbakeryinfo.com/">Visit Site</a>
-                            </div>
-                        </div>-->
                     </div>
                 </div>
             </div>
@@ -310,7 +357,8 @@
                 <h3 class="green-text text-darken-3">Education</h3>
                 <h5>University of Washington Information School</h5>
                 <p>
-                    <strong>Bachelor of Science - Informatics</strong> 2016–Present</p>
+                    <strong>Bachelor of Science - Informatics</strong> 2016–Present<br>
+                    <strong>Minor in Ethics</strong></p>
 
                 <h5>Cascadia Community College</h5>
                 <p>
@@ -349,6 +397,10 @@
             <div id="awards" class="section">
                 <h3 class="green-text text-darken-3">Awards &amp; Accomplishments</h3>
                 <ul>
+                    <li>
+                        Graduated from Running Start with Faculty Honors
+                    </li>
+                    <li>Lettered in Swimming, Robotics, Band &amp; Community Service</li>
                     <li>
                         <a href="http://evergreenboysstate.org/2015-yearbook/supreme-court/">Evergreen Boys State, elected as one of 9 Supreme Court Justices from several hundred boys around
                             the state.</a> 2015</li>
